@@ -18,6 +18,8 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @response = Response.new
+    @responses = Response.where(board_id: @board.id)
   end
 
   private

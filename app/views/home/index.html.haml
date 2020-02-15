@@ -1,14 +1,8 @@
 - if user_signed_in?
-  %h5 ログイン中
-  %h4
+  %h3
     = link_to "ログアウト", destroy_user_session_path, method: :delete
-  %h2
-    = link_to "新規スレッド作成", new_board_path
-  %h2
-    = link_to "スレッド一覧", boards_path
-
 - else
-  %h4
+  %h3
     = link_to "新規会員登録", new_user_registration_path
-  %h4
+  %h3
     = link_to "ログイン", new_user_session_path
