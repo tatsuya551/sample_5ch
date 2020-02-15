@@ -1,2 +1,15 @@
 %h2 
   = "「"+@board.title+"」"+"   のスレッド"
+- if @responses.present?
+  - @responses.each do |response|
+    %h4
+      = response.user.email
+      = simple_time(response.created_at)
+    %h3
+      = response.comment
+- else
+  %h3 まだ書き込みがありません
+%h1
+  = form_with(model: [@board,@response], local: true) do |f|
+    = f.text_field :comment
+    = f.submit " 書き込む "
