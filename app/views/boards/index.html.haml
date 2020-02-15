@@ -1,0 +1,5 @@
+%h2 スレッド一覧
+- @boards.each do |board|
+  %h3
+    = link_to board_path(board) do
+      = board.title
