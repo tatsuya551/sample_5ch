@@ -9,6 +9,7 @@ class BoardsController < ApplicationController
 
   def create
     board = Board.new(board_params)
+    # binding.pry
     if board.save
       redirect_to boards_path
     else
@@ -24,6 +25,6 @@ class BoardsController < ApplicationController
 
   private
   def board_params
-    params.require(:board).permit(:title).merge(user_id: current_user.id)
+    params.require(:board).permit(:title, category_ids: []).merge(user_id: current_user.id)
   end
 end

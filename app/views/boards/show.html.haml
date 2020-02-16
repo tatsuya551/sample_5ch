@@ -1,5 +1,10 @@
 %h2 
   = "「"+@board.title+"」"+"   のスレッド"
+- if @board.categories.present?
+  %h6
+    - @board.categories.each do |category|
+      = category.content
+- else
 - if @responses.present?
   - @responses.each do |response|
     %h4
