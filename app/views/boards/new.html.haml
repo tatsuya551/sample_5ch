@@ -1,4 +1,7 @@
 %h2 新規スレッド作成
 = form_with(model: @board, local: true) do |f|
-  = f.text_field :title, placeholder: "スレッド名"
+  .board-name
+    = f.text_field :title, placeholder: "スレッド名"
+  .category-content
+    = f.collection_check_boxes :category_ids, Category.all, :id, :content
   = f.submit " 登録する "
