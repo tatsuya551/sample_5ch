@@ -1,0 +1,12 @@
+- if @keyword == "" || @search_results == []
+  %h2
+    検索結果はありません
+- else
+  %h2
+    = "「"+ @keyword + "」の検索結果"
+  %h3
+    - @search_results.each do |search_result|
+      %h3
+        = link_to board_path(search_result) do
+          = search_result.id
+          = search_result.title
