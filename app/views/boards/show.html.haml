@@ -1,20 +1,28 @@
-%h2 
-  = "「"+@board.title+"」"+"   のスレッド"
-- if @board.categories.present?
-  %h6
-    - @board.categories.each do |category|
-      = category.content
-- else
-- if @responses.present?
-  - @responses.each do |response|
-    %h4
-      = response.user.email
-      = simple_time(response.created_at)
-    %h3
-      = response.comment
-- else
-  %h3 まだ書き込みがありません
-%h1
-  = form_with(model: [@board,@response], local: true) do |f|
-    = f.text_field :comment
-    = f.submit " 書き込む "
+.boards-show-top
+  .boards-show-top__title
+    = "「"+@board.title+"」"+"   のスレッド"
+  - if @board.categories.present?
+    .boards-show-top__category-title
+      < カテゴリー >
+    .boards-show-top__category-box
+      - @board.categories.each do |category|
+        .boards-show-top__category-box__content
+          = category.content
+  - else
+  - if @responses.present?
+    .boards-show-top__response-title
+      < レス一覧 >
+    .boards-show-top__response-box
+      - @responses.each do |response|
+        .boards-show-top__response-box__user-email
+          = response.user.email
+          = simple_time(response.created_at)
+        .boards-show-top__response-box__content
+          = response.comment
+  - else
+    .boards-show-top__response-none
+      まだ書き込みがありません
+  .boards-show-top__form
+    = form_with(model: [@board,@response], local: true) do |f|
+      = f.text_field :comment
+      = f.submit " 書き込む "

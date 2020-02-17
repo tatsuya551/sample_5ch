@@ -1,0 +1,19 @@
+.header-top{
+  width: 900px;
+  margin: 60px auto ;
+  &__logo{
+    font-size: 30px;
+  }
+  &__content{
+    &__tag{
+      margin-top: 10px;
+      .content-tag{
+        font-size: 18px;
+        margin-right: 10px;
+      }
+    }
+    &--search-form{
+      margin-top: 20px;
+    }
+  }
+}
