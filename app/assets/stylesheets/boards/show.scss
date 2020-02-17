@@ -1,0 +1,41 @@
+.boards-show-top{
+  width: 900px;
+  margin: 20px auto 150px;
+  &__title{
+    font-size: 24px;
+  }
+  &__category-title{
+    font-size: 14px;
+    margin-top: 30px;
+  }
+  &__category-box{
+    display: flex;
+    &__content{
+      font-size: 16px;
+      margin-top: 5px;
+      margin-right: 10px;  
+    }
+  }
+  &__response-title{
+    font-size: 14px;
+    margin-top: 60px;
+  }
+  &__response-box{
+    &__user-email{
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    &__content{
+      margin-top: 10px;
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
+  }
+  &__response-none{
+    margin-top: 60px;
+    font-size: 20px;
+  }
+  &__form{
+    margin-top: 60px;
+  }
+}

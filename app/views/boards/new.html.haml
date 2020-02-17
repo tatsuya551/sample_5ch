@@ -1,7 +1,10 @@
-%h2 新規スレッド作成
-= form_with(model: @board, local: true) do |f|
-  .board-name
-    = f.text_field :title, placeholder: "スレッド名"
-  .category-content
-    = f.collection_check_boxes :category_ids, Category.all, :id, :content
-  = f.submit " 登録する "
+.boards-new-top
+  .boards-new-top__title
+    新規スレッド作成
+  = form_with(model: @board, local: true, class: "boards-new-top__form") do |f|
+    .boards-new-top__form__board-name
+      = f.text_field :title, placeholder: "スレッド名"
+    .boards-new-top__form__category-content
+      = f.collection_check_boxes :category_ids, Category.all, :id, :content
+    .boards-new-top__form__submit
+      = f.submit " 登録する "

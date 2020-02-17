@@ -1,9 +1,13 @@
-%h2 スレッド一覧
-- if @boards.present?
-  - @boards.each do |board|
-    %h3
-      = link_to board_path(board) do
-        = board.id
-        = board.title
-- else
-  %h3 スレッドがまだありません
+.boards-index-top
+  .boards-index-top__title
+    スレッド一覧
+  - if @boards.present?
+    .boards-index-top__board-list
+      - @boards.each do |board|
+        .boards-index-top__board-list__link
+          = link_to board_path(board) do
+            = board.id
+            = board.title
+  - else
+    .boards-index-top__board-link-none
+      スレッドがまだありません

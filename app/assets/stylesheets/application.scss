@@ -1,0 +1,11 @@
+@import "reset";
+
+@import "shared/header";
+
+@import "home/index";
+@import "devise/devise";
+
+@import "boards/index";
+@import "boards/new";
+@import "boards/show";
+@import "boards/search";

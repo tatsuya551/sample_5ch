@@ -1,12 +1,13 @@
-- if @keyword == "" || @search_results == []
-  %h2
-    検索結果はありません
-- else
-  %h2
-    = "「"+ @keyword + "」の検索結果"
-  %h3
-    - @search_results.each do |search_result|
-      %h3
-        = link_to board_path(search_result) do
-          = search_result.id
-          = search_result.title
+.boards-search-top
+  - if @keyword == "" || @search_results == []
+    .boards-search-top__none
+      検索結果はありません
+  - else
+    .boards-search-top__title
+      = "「"+ "#{@keyword}"+ "」の検索結果　"+"#{@search_results.count}"+"件"
+    .boards-search-top__list
+      - @search_results.each do |search_result|
+        .boards-search-top__list__content
+          = link_to board_path(search_result) do
+            = search_result.id
+            = search_result.title
