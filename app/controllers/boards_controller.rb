@@ -9,7 +9,6 @@ class BoardsController < ApplicationController
 
   def create
     board = Board.new(board_params)
-    # binding.pry
     if board.save
       redirect_to boards_path
     else
@@ -21,6 +20,11 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @response = Response.new
     @responses = Response.where(board_id: @board.id)
+  end
+
+  def search
+    @keyword = params[:keyword]
+    @search_results = Board.search(@keyword)
   end
 
   private

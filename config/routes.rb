@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :boards, only: [:new, :create, :index, :show] do
     resources :responses, only: [:create]
+    collection do
+      get 'search'
+    end
   end
 end

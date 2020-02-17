@@ -3,6 +3,7 @@
   - @boards.each do |board|
     %h3
       = link_to board_path(board) do
+        = board.id
         = board.title
 - else
   %h3 スレッドがまだありません
