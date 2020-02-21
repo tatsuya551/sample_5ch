@@ -10,8 +10,9 @@ class Board < ApplicationRecord
     split_keyword = search_keyword.split(/[[:blank:]]+/)
     match_keywords = []
     split_keyword.each do |keyword|
-      next if keyword == "" 
-      match_keywords += self.eager_load(:responses).where(['title LIKE ? OR responses.comment LIKE ?', "%#{keyword}%", "%#{keyword}%" ])
+      next if keyword == ""
+
+      match_keywords += eager_load(:responses).where(['title LIKE ? OR responses.comment LIKE ?', "%#{keyword}%", "%#{keyword}%"])
     end
     match_keywords.uniq
   end
